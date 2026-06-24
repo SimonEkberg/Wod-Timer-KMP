@@ -1,0 +1,36 @@
+# Gradle / build output
+.gradle/
+build/
+**/build/
+.kotlin/
+
+# Local configuration (machine-specific SDK path)
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Kotlin/Native & KMP
+*.klib
+
+# Xcode / iOS
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.DS_Store
+iosApp/Pods/
+iosApp/*.xcworkspace/xcuserdata/
+shared/build/xcode-frameworks/
+
+# Keystore / signing (never commit secrets)
+*.jks
+*.keystore
+
+# Logs and OS files
+*.log
+Thumbs.db
