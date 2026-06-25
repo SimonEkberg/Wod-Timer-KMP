@@ -4,7 +4,9 @@ A **Kotlin Multiplatform** rebuild of [WOD Timer](https://github.com/SimonEkberg
 
 This repository is the multiplatform successor to the Android-only app. The original Kotlin/Jetpack Compose app continues to live at `SimonEkberg/wod-timer`; this project shares its logic and UI across both platforms.
 
-> **Status: scaffold.** The project structure, build, and all the platform integration points (sound, persistence, keep-awake, clock, platform name) are in place and the Android target builds and runs. The full timer feature port (engine, 82 seeded workouts, run screen, round summaries) is tracked in [MIGRATION.md](MIGRATION.md) and lands in follow-up work.
+> **Status: full app ported.** The entire WOD Timer app now lives in `shared/commonMain` — the timer engine, 82 seeded workouts, kotlinx-serialization persistence, all the Compose UI (home tabs, quick-start tiles, run screen with flash + round summaries, custom-workout editor, and workout notes with a draw/type whiteboard + gallery-image backgrounds). Platform specifics (sound, key-value storage, keep-awake, immersive mode, system back, image pick/decode) are behind `expect`/`actual` shims.
+>
+> The **Android target builds and runs** (verified on emulator: 82 workouts load, timer/clock run, full UI). The **iOS target compiles on macOS + Xcode** — its actuals (Skia image decode, `UIImagePickerController`, `NSUserDefaults`, etc.) are written but, like all iOS code here, are verified on a Mac. The iOS image picker in particular uses UIKit interop that should be sanity-checked on first Mac build. See [MIGRATION.md](MIGRATION.md) for the file-by-file mapping.
 
 ## Module layout
 

@@ -13,4 +13,10 @@ actual object Settings {
     actual fun putInt(key: String, value: Int) {
         defaults.setInteger(value.toLong(), forKey = key)
     }
+
+    actual fun getString(key: String): String? = defaults.stringForKey(key)
+
+    actual fun putString(key: String, value: String) {
+        defaults.setObject(value, forKey = key)
+    }
 }

@@ -14,4 +14,10 @@ actual object Settings {
     actual fun putInt(key: String, value: Int) {
         prefs.edit().putInt(key, value).apply()
     }
+
+    actual fun getString(key: String): String? = prefs.getString(key, null)
+
+    actual fun putString(key: String, value: String) {
+        prefs.edit().putString(key, value).apply()
+    }
 }
