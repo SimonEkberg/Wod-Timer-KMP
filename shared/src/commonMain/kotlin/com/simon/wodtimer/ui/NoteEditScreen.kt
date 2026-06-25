@@ -56,6 +56,7 @@ import androidx.compose.ui.unit.sp
 import com.simon.wodtimer.model.NotePoint
 import com.simon.wodtimer.model.NoteStroke
 import com.simon.wodtimer.model.WorkoutNote
+import com.simon.wodtimer.model.randomId
 import com.simon.wodtimer.platform.NoteImageStore
 import com.simon.wodtimer.platform.rememberImagePicker
 import kotlinx.coroutines.launch
@@ -235,7 +236,7 @@ fun NoteEditScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
                     val note = WorkoutNote(
-                        id = existing?.id ?: java.util.UUID.randomUUID().toString(),
+                        id = existing?.id ?: randomId(),
                         name = name.ifBlank { "Workout" },
                         text = text,
                         strokes = strokes.toList(),

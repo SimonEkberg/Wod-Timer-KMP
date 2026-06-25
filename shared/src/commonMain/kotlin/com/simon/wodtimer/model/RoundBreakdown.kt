@@ -38,7 +38,8 @@ object RoundBreakdowns {
             return listOf(IntervalGroup(0, rounds, averageMillis(rounds)))
         }
         return splits.groupBy { it.interval }
-            .toSortedMap()
+            .entries
+            .sortedBy { it.key }
             .map { (interval, group) ->
                 val rounds = mutableListOf<RoundBreakdown>()
                 val baseline = group.firstOrNull()?.intervalStartMillis ?: 0L
